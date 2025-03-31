@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: gray;
+}
+
+nav {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100px;
+    padding: 0 5%;
+    background-color: rgb(47, 46, 46);
+}
+
+nav .logo {
+    float: left;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+nav .list {
+    float: right;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .list a {
+    display: block;
+    text-transform: uppercase;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 25px;
+}
+
+nav .list a:hover {
+    background-color: black;
+}
+
+#toggle {
+    position: absolute;
+    top: -100px;
+}
+
+nav .icon-bara {
+    display: none;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+nav .icon-bara .line {
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    margin: 5px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    nav .logo {
+        float: none;
+        width: auto;
+        justify-content: center;
+    }
+
+    nav .list {
+        float: none;
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        right: 0;
+        top: 100px;
+        width: auto;
+        height: 0;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: black;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+        max-height: 0;
+    }
+
+    nav .list a {
+        font-size: 20px;
+    }
+
+    #toggle:checked ~ .list {
+        max-height: 300px;
+    }
+
+    nav .icon-bara {
+        display: block;
+    }
+}
+
+
+
+
+
+.slider{
+    margin: 100px 0;
+    padding: 5px;
+    font-family: lato;
+}
+
+.slider h2{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 2rem;
+}
+
+.slider-frame{
+    width: 1280px;
+    height: auto;
+    margin: 50px auto 0;
+    overflow: hidden;
+
+    animation: slide 15s infinite alternate ease-in-out;  /*15s se divide en 4 porque son 4 imagenes*/
+}
+
+.slider-frame ul {
+    display: flex;
+    padding: 0;
+    width: 400%; /*400 porque al ser 4 imagenes quiero que cada una sea de 100%*/
+}
+
+.slider-frame li {
+    list-style: none;
+    width: 100%;
+}
+
+.slider-frame img {
+    width: 100%;
+}
+
+
+@keyframes slide {
+    0% {margin-left: 0%;}      /*la primera imagen va del 0 al 20% respecto al tiempo que se puso arriba */
+    20%{margin-left: 0%;}
+    
+    25% {margin-left: -100%;}      /*se dejan 5s de diferencia para que la siguiente imagen no empiece de una vez*/
+    45%{margin-left: -100%;}
+
+    50% {margin-left: -200%;}      /*cada imagen*/
+    70%{margin-left: -200%;}
+
+    75% {margin-left: -300%;}      
+    95%{margin-left: -300%;}
+}
+
